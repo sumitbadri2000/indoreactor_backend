@@ -29,4 +29,22 @@ NotesRouter.post("/add", async (req, res) => {
     });
   }
 });
+
+NotesRouter.delete("/:id", async (req, res) => {
+  try {
+    await NotesModel.findByIdAndDelete(req.params.id);
+    res.status(200).send({
+      success: true,
+      message: "Note deleted successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.statsu(500).send({
+      success: false,
+      message: "Error while deleting note",
+      error,
+    });
+  }
+});
+
 module.exports = { NotesRouter };
