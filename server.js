@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use("/api/v1/notes", NotesRoutes);
+app.use("/api/notes", NotesRoutes);
 
 app.get("/", (req, res) => {
   res.send({
