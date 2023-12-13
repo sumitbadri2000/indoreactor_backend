@@ -1,23 +1,18 @@
-import express from "express";
-import dotenv from "dotenv";
-import Connection from "./config/db.js";
-import cors from "cors";
-import NotesRoutes from "./routes/Notes.js";
-const { connection } = require("./config/db.js");
-dotenv.config();
-const app = express();
-app.use(cors());
-app.use(express.json());
+const express = require("express");
+require("dotenv").config();
+const { connection } = require("./db.js");
 
-// routes
-app.use("/api/notes", NotesRoutes);
+const app = express();
+const cors = require("cors");
+const { NotesRouter } = require("./routes/notes.route.js");
+app.use(express.json());
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
-  res.send({
-    message: "Home",
-  });
+  res.status(200).send("Api is working fine.");
 });
 
+app.use("/task", NotesRouter);
 app.listen(process.env.port, async () => {
   try {
     await connection;
