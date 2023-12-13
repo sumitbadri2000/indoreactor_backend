@@ -2,14 +2,22 @@
   "name": "indoreators_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumitbadri2000/indoreactor_backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumitbadri2000/indoreactor_backend/issues"
+  },
+  "homepage": "https://github.com/sumitbadri2000/indoreactor_backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
